@@ -1,19 +1,26 @@
-addEventListener("fetch", event => {
-    event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-    // Get the request URL
+export default {
+  async fetch(request) {
     let url = new URL(request.url);
+    let path = url.pathname.substring(1); // Extract path after domain
 
-    // Extract the serial number (everything after /)
-    let serial = url.pathname.substring(1);
+    const redirects = {
+      "setup": "https://vimeo.com/1064040397",
+      "amazon": "https://www.amazon.com/dp/B0D6Q7SRSQ",
+      "marketing": "https://vimeo.com/1064040661",
+      "training": "https://vimeo.com/1064040661/775eb9d04e" // ← Add your new redirect
+    };
 
-    // Base Google Form URL
-    let baseFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSdiHjd3WcEK9n-7XAUPVpJ5jG7GiZVgzBVCFXDxcJ6zZhfl3w/viewform?usp=pp_url&entry.1714918339=";
+    if (redirects[path]) {
+      return Response.redirect(redirects[path], 302);
+    }
 
-    // Construct the redirect URL
-    let redirectURL = baseFormURL + serial;
+    let serialNumberPattern = /^CHT\d{5,}$/;
+    if (serialNumberPattern.test(path)) {
+      let baseFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSdiHjd3WcEK9n-7XAUPVpJ5jG7GiZVgzBVCFXDxcJ6zZhfl3w/viewform?usp=pp_url&entry.1714918339=";
+      let redirectURL = baseFormURL + encodeURIComponent(path);
+      return Response.redirect(redirectURL, 302);
+    }
 
-    return Response.redirect(redirectURL, 301); // Permanent Redirect
-}
+    return new Response("Not Found", { status: 404 });
+  }
+};
