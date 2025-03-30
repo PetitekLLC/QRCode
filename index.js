@@ -4,9 +4,9 @@ export default {
     let path = url.pathname.substring(1); // Extract path after domain
 
     const redirects = {
-      "setup": "https://vimeo.com/1064040397",
+      "setup": "https://vimeo.com/1064040661?share=copy",
       "amazon": "https://www.amazon.com/dp/B0D6Q7SRSQ",
-      "marketing": "https://vimeo.com/1064040661",
+      "marketing": "https://vimeo.com/1064040661?share=copy",
       "training": "https://vimeo.com/1064040661/775eb9d04e" // ← Add your new redirect
     };
 
