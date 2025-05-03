@@ -4,7 +4,7 @@ export default {
     let path = url.pathname.substring(1); // Extract path after domain
 
     const redirects = {
-      "setup": "https://vimeo.com/1064040661?",
+      "setup": "https://petitek.com?",
       "amazon": "https://www.amazon.com/dp/B0D6Q7SRSQ",
       "marketing": "https://petitek.com",
       "training": "https://petitek.com" // ← Add your new redirect
