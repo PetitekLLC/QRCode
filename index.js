@@ -6,8 +6,8 @@ export default {
     const redirects = {
       "setup": "https://vimeo.com/1064040661?",
       "amazon": "https://www.amazon.com/dp/B0D6Q7SRSQ",
-      "marketing": "https://vimeo.com/1064040661?",
-      "training": "https://vimeo.com/1064040661/775eb9d04e" // ← Add your new redirect
+      "marketing": "https://petitek.com",
+      "training": "https://petitek.com" // ← Add your new redirect
     };
 
     if (redirects[path]) {
