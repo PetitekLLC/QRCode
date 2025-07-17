@@ -1,2 +1,2 @@
 # QRCode
-QR Code Redirection System
+QR Code Redirects for static ULRs
