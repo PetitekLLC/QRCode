@@ -5,7 +5,7 @@ export default {
 
     const redirects = {
       "setup": "https://petitek.com?",
-      "amazon": "https://www.petitek.com",
+     "amazon": "https://www.petitek.com/?qr-test=amazon",
       "marketing": "https://petitek.com",
       "training": "https://petitek.com"
     };
