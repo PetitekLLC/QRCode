@@ -1,26 +1,38 @@
 import qrcode
 import os
 
-# Create a folder to store QR codes
+# Create output folder
 output_folder = "qr_codes"
 os.makedirs(output_folder, exist_ok=True)
 
-# List of test serial numbers
-test_serial_numbers = ["TEST001", "TEST002", "TEST003", "TEST004", "TEST005"]
+# Campaign code
+campaign = "sz26"
 
-# Generate QR codes for each test serial number
-for serial_number in test_serial_numbers:
-    url = f"https://qr.petitek.com/{serial_number}"  # Updated URL for registration
+# URL to encode
+url = f"https://qr.petitek.com/{campaign}"
 
-    # Generate QR Code
-    qr = qrcode.QRCode(box_size=10, border=4)  # Adjust size if needed
-    qr.add_data(url)
-    qr.make(fit=True)
+# Create QR
+qr = qrcode.QRCode(
+    version=None,
+    error_correction=qrcode.constants.ERROR_CORRECT_H,   # Highest error correction
+    box_size=20,                                         # High resolution
+    border=4                                             # Standard quiet zone
+)
 
-    # Save as PNG
-    qr_img = qr.make_image(fill="black", back_color="white")
-    qr_img.save(f"{output_folder}/qr_{serial_number}.png")
+qr.add_data(url)
+qr.make(fit=True)
 
-    print(f"Generated QR Code: {output_folder}/qr_{serial_number}.png")
+# Create image
+img = qr.make_image(fill_color="black", back_color="white")
 
-print("Test QR codes created successfully!")
+# Save
+filename = os.path.join(output_folder, f"{campaign}.png")
+img.save(filename)
+
+print("=====================================")
+print("QR Code Generated Successfully")
+print("=====================================")
+print("Campaign :", campaign)
+print("URL      :", url)
+print("Saved To :", filename)
+print("=====================================")
