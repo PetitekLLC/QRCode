@@ -5,9 +5,10 @@ export default {
 
     const redirects = {
       "setup": "https://petitek.com?",
-     "amazon": "https://www.petitek.com/?qr-test=amazon",
+      "amazon": "https://www.petitek.com/?qr-test=amazon",
       "marketing": "https://petitek.com",
-      "training": "https://petitek.com"
+      "training": "https://petitek.com",
+      "sz26": "https://petitek.com/superzoo"
     };
 
     if (redirects[path]) {
