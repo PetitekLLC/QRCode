@@ -8,7 +8,10 @@ export default {
       "amazon": "https://www.petitek.com/?qr-test=amazon",
       "marketing": "https://petitek.com",
       "training": "https://petitek.com",
-      "sz26": "https://petitek.com/superzoo"
+      "sz26": "https://petitek.com/superzoo",
+      "shields": "https://petitek.com/learn?video=shields",
+      "wifi": "https://petitek.com/learn?video=wifi-pretraining",
+      "modes": "https://petitek.com/learn?video=operating&t=169"
     };
 
     if (redirects[path]) {
